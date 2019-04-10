@@ -29,6 +29,8 @@ gem 'image_processing', '~> 1.2'
 gem 'rack-cors', require: 'rack/cors'
 gem 'swagger-blocks'
 
+gem 'fast_jsonapi'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.1', require: false
 
