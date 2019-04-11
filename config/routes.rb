@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
   resources :books
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  namespace :api, defaults: {format: :json} do
+    resources :swagger, only: [:index] unless Rails.env.production?
+
+    resources :books, except: [:new, :edit]
+  end
 end

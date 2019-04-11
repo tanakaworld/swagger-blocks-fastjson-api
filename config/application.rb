@@ -31,5 +31,9 @@ module SwaggerBlocksFastjsonApi
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.paths.add '/app/models/**/', eager_load: true
+    config.paths.add '/app/serializers/**/', eager_load: true
+    config.paths.add '/lib/**/', eager_load: true
   end
 end
