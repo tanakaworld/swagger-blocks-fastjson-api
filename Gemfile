@@ -51,8 +51,8 @@ end
 group :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
-  gem 'committee'
-  gem 'committee-rails'
+  gem 'committee', '2.5.0'
+  gem 'committee-rails', '0.3.0'
 end
 
 

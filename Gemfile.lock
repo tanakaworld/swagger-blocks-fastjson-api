@@ -60,14 +60,13 @@ GEM
       msgpack (~> 1.0)
     builder (3.2.3)
     byebug (11.0.1)
-    committee (3.0.1)
+    committee (2.5.0)
       json_schema (~> 0.14, >= 0.14.3)
-      openapi_parser (>= 0.2.2)
-      rack (>= 1.5)
-    committee-rails (0.4.0)
+      rack (>= 2.0.6)
+    committee-rails (0.3.0)
       actionpack
       activesupport
-      committee (>= 2.4.0)
+      committee (>= 2.0.0)
       railties
     concurrent-ruby (1.1.5)
     crass (1.0.4)
@@ -114,7 +113,6 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.10.2)
       mini_portile2 (~> 2.4.0)
-    openapi_parser (0.2.3)
     puma (3.12.1)
     rack (2.0.7)
     rack-cors (1.0.3)
@@ -225,8 +223,8 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.1)
   byebug
-  committee
-  committee-rails
+  committee (= 2.5.0)
+  committee-rails (= 0.3.0)
   factory_bot_rails
   fast_jsonapi
   image_processing (~> 1.2)
