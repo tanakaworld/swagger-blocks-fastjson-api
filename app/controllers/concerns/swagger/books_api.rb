@@ -27,6 +27,7 @@ module Swagger::BooksApi
       operation :post do
         key :operationId, 'createBook'
         key :tags, ['sampleApp']
+        key :consumes, ['multipart/form-data']
 
         parameter name: :body, in: :body, required: true do
           schema do
@@ -64,6 +65,7 @@ module Swagger::BooksApi
       operation :put do
         key :operationId, 'updateBook'
         key :tags, ['sampleApp']
+        key :consumes, ['multipart/form-data']
 
         parameter name: :id,
                   in: :path,

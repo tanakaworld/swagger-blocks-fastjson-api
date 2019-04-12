@@ -191,15 +191,13 @@ export const SampleAppApiAxiosParamCreator = function (configuration?: Configura
     return {
         /**
          * 
-         * @param {CreateBookRequest} body 
+         * @param {string} [title] 
+         * @param {string} [description] 
+         * @param {any} [image] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createBook(body: CreateBookRequest, options: any = {}): RequestArgs {
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling createBook.');
-            }
+        createBook(title?: string, description?: string, image?: any, options: any = {}): RequestArgs {
             const localVarPath = `/api/books`;
             const localVarUrlObj = url.parse(localVarPath, true);
             let baseOptions;
@@ -209,16 +207,27 @@ export const SampleAppApiAxiosParamCreator = function (configuration?: Configura
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            const localVarFormParams = new FormData();
 
 
-                localVarHeaderParameter['Content-Type'] = 'application/json';
-
+            if (title !== undefined) { 
+                localVarFormParams.append('title', title as any);
+            }
+    
+            if (description !== undefined) { 
+                localVarFormParams.append('description', description as any);
+            }
+    
+            if (image !== undefined) { 
+                localVarFormParams.append('image', image as any);
+            }
+    
+    
             localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...options.headers};
-            const needsSerialization = (<any>"CreateBookRequest" !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
+            localVarRequestOptions.data = localVarFormParams;
 
             return {
                 url: url.format(localVarUrlObj),
@@ -327,18 +336,16 @@ export const SampleAppApiAxiosParamCreator = function (configuration?: Configura
         /**
          * 
          * @param {number} id 
-         * @param {UpdateBookRequest} body 
+         * @param {string} [title] 
+         * @param {string} [description] 
+         * @param {any} [image] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateBook(id: number, body: UpdateBookRequest, options: any = {}): RequestArgs {
+        updateBook(id: number, title?: string, description?: string, image?: any, options: any = {}): RequestArgs {
             // verify required parameter 'id' is not null or undefined
             if (id === null || id === undefined) {
                 throw new RequiredError('id','Required parameter id was null or undefined when calling updateBook.');
-            }
-            // verify required parameter 'body' is not null or undefined
-            if (body === null || body === undefined) {
-                throw new RequiredError('body','Required parameter body was null or undefined when calling updateBook.');
             }
             const localVarPath = `/api/books/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
@@ -350,16 +357,27 @@ export const SampleAppApiAxiosParamCreator = function (configuration?: Configura
             const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+            const localVarFormParams = new FormData();
 
 
-                localVarHeaderParameter['Content-Type'] = 'application/json';
-
+            if (title !== undefined) { 
+                localVarFormParams.append('title', title as any);
+            }
+    
+            if (description !== undefined) { 
+                localVarFormParams.append('description', description as any);
+            }
+    
+            if (image !== undefined) { 
+                localVarFormParams.append('image', image as any);
+            }
+    
+    
             localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...options.headers};
-            const needsSerialization = (<any>"UpdateBookRequest" !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
+            localVarRequestOptions.data = localVarFormParams;
 
             return {
                 url: url.format(localVarUrlObj),
@@ -377,12 +395,14 @@ export const SampleAppApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
-         * @param {CreateBookRequest} body 
+         * @param {string} [title] 
+         * @param {string} [description] 
+         * @param {any} [image] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createBook(body: CreateBookRequest, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse201> {
-            const localVarAxiosArgs = SampleAppApiAxiosParamCreator(configuration).createBook(body, options);
+        createBook(title?: string, description?: string, image?: any, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse201> {
+            const localVarAxiosArgs = SampleAppApiAxiosParamCreator(configuration).createBook(title, description, image, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -430,12 +450,14 @@ export const SampleAppApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {number} id 
-         * @param {UpdateBookRequest} body 
+         * @param {string} [title] 
+         * @param {string} [description] 
+         * @param {any} [image] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateBook(id: number, body: UpdateBookRequest, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse201> {
-            const localVarAxiosArgs = SampleAppApiAxiosParamCreator(configuration).updateBook(id, body, options);
+        updateBook(id: number, title?: string, description?: string, image?: any, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse201> {
+            const localVarAxiosArgs = SampleAppApiAxiosParamCreator(configuration).updateBook(id, title, description, image, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -452,12 +474,14 @@ export const SampleAppApiFactory = function (configuration?: Configuration, base
     return {
         /**
          * 
-         * @param {CreateBookRequest} body 
+         * @param {string} [title] 
+         * @param {string} [description] 
+         * @param {any} [image] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createBook(body: CreateBookRequest, options?: any) {
-            return SampleAppApiFp(configuration).createBook(body, options)(axios, basePath);
+        createBook(title?: string, description?: string, image?: any, options?: any) {
+            return SampleAppApiFp(configuration).createBook(title, description, image, options)(axios, basePath);
         },
         /**
          * 
@@ -489,12 +513,14 @@ export const SampleAppApiFactory = function (configuration?: Configuration, base
         /**
          * 
          * @param {number} id 
-         * @param {UpdateBookRequest} body 
+         * @param {string} [title] 
+         * @param {string} [description] 
+         * @param {any} [image] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateBook(id: number, body: UpdateBookRequest, options?: any) {
-            return SampleAppApiFp(configuration).updateBook(id, body, options)(axios, basePath);
+        updateBook(id: number, title?: string, description?: string, image?: any, options?: any) {
+            return SampleAppApiFp(configuration).updateBook(id, title, description, image, options)(axios, basePath);
         },
     };
 };
@@ -508,13 +534,15 @@ export const SampleAppApiFactory = function (configuration?: Configuration, base
 export class SampleAppApi extends BaseAPI {
     /**
      * 
-     * @param {CreateBookRequest} body 
+     * @param {string} [title] 
+     * @param {string} [description] 
+     * @param {any} [image] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SampleAppApi
      */
-    public createBook(body: CreateBookRequest, options?: any) {
-        return SampleAppApiFp(this.configuration).createBook(body, options)(this.axios, this.basePath);
+    public createBook(title?: string, description?: string, image?: any, options?: any) {
+        return SampleAppApiFp(this.configuration).createBook(title, description, image, options)(this.axios, this.basePath);
     }
 
     /**
@@ -553,13 +581,15 @@ export class SampleAppApi extends BaseAPI {
     /**
      * 
      * @param {number} id 
-     * @param {UpdateBookRequest} body 
+     * @param {string} [title] 
+     * @param {string} [description] 
+     * @param {any} [image] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SampleAppApi
      */
-    public updateBook(id: number, body: UpdateBookRequest, options?: any) {
-        return SampleAppApiFp(this.configuration).updateBook(id, body, options)(this.axios, this.basePath);
+    public updateBook(id: number, title?: string, description?: string, image?: any, options?: any) {
+        return SampleAppApiFp(this.configuration).updateBook(id, title, description, image, options)(this.axios, this.basePath);
     }
 
 }
