@@ -4,14 +4,16 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue/dist/vue.esm';
+
+export default Vue.extend({
   data: function() {
     return {
       message: 'Hello Vue!'
     };
   }
-};
+});
 </script>
 
 <style scoped>
