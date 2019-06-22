@@ -675,10 +675,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@openapitools/openapi-generator-cli@0.0.9-4.0.0-beta3":
-  version "0.0.9-4.0.0-beta3"
-  resolved "https://registry.yarnpkg.com/@openapitools/openapi-generator-cli/-/openapi-generator-cli-0.0.9-4.0.0-beta3.tgz#9734cc8440efc825caca6ed8e1a33b9d75eee7aa"
-  integrity sha512-3d1da4EweprB0FzgIbztwpLrRIzh4I0HyhHwNNlkWgDDegPCbUPrQliOYPAsQOqrymXkjsJc8gXv7egMNIZNoA==
+"@openapitools/openapi-generator-cli@^0.0.14-4.0.2":
+  version "0.0.14-4.0.2"
+  resolved "https://registry.yarnpkg.com/@openapitools/openapi-generator-cli/-/openapi-generator-cli-0.0.14-4.0.2.tgz#244394f7487a7744a267165828d3d5249842d2a7"
+  integrity sha512-x4gKaGNgG5Eqt43B4V814Bp0zUBT5h9/K0Tz4oTi5wGy+5sqU5/gElKys0jmM6wvEio2OXJm728BIFuKPuFi5w==
 
 "@rails/actioncable@^6.0.0-alpha":
   version "6.0.0-alpha"
