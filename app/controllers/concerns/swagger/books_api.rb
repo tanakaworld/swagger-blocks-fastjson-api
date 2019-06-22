@@ -11,11 +11,6 @@ module Swagger::BooksApi
         key :operationId, 'getBooks'
         key :tags, ['sampleApp']
 
-        parameter name: :id,
-                  in: :path,
-                  required: true,
-                  type: :integer,
-                  format: :int64
         response 200 do
           key :description, 'Books response'
           fja_response_schema :array, :Book
