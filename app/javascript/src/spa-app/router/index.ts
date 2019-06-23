@@ -3,9 +3,9 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-import Layout from '../pages/layouts/Default.vue';
-import Books from '../pages/books/Index.vue';
-import Error404 from '../pages/errors/404.vue';
+import Layout from '@spa-app/pages/layouts/Default.vue';
+import Books from '@spa-app/pages/books/Index.vue';
+import Error404 from '@spa-app/pages/errors/404.vue';
 
 const pathPrefix = 'app';
 const routes = [

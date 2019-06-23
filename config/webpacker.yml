@@ -34,8 +34,11 @@ default: &default
     - .woff2
 
   extensions:
+    - .erb
     - .vue
     - .mjs
+    - .ts
+    - .tsx
     - .js
     - .sass
     - .scss

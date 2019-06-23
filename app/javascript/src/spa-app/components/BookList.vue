@@ -7,7 +7,7 @@
 <script lang="ts">
 import Vue from 'vue/dist/vue.esm';
 
-import BookListItem from './BookListItem.vue';
+import BookListItem from '@spa-app/components/BookListItem.vue';
 
 export default Vue.extend({
   components: {

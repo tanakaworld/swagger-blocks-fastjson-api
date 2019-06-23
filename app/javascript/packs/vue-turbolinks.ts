@@ -3,7 +3,7 @@ import Vue from 'vue/dist/vue.esm';
 let vms = [];
 const options = {};
 
-const requireContext = require.context('./options', false, /\.ts$/);
+const requireContext = require.context('../options', false, /\.ts$/);
 requireContext.keys().forEach(key => {
   const name = key
     .split('/')

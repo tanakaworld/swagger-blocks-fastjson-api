@@ -3,9 +3,9 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-import APIPlugin from './plugins/api';
+import APIPlugin from '@spa-app/store/plugins/api';
 
-import * as BookStore from './modules/books/store';
+import * as BookStore from '@spa-app/store/modules/books/store';
 
 export interface RootState {
   [BookStore.namespace]: BookStore.State;
