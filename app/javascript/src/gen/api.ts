@@ -295,17 +295,11 @@ export const SampleAppApiAxiosParamCreator = function (configuration?: Configura
         },
         /**
          * 
-         * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getBooks(id: number, options: any = {}): RequestArgs {
-            // verify required parameter 'id' is not null or undefined
-            if (id === null || id === undefined) {
-                throw new RequiredError('id','Required parameter id was null or undefined when calling getBooks.');
-            }
-            const localVarPath = `/api/books`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+        getBooks(options: any = {}): RequestArgs {
+            const localVarPath = `/api/books`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -429,12 +423,11 @@ export const SampleAppApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getBooks(id: number, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse200> {
-            const localVarAxiosArgs = SampleAppApiAxiosParamCreator(configuration).getBooks(id, options);
+        getBooks(options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse200> {
+            const localVarAxiosArgs = SampleAppApiAxiosParamCreator(configuration).getBooks(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -496,12 +489,11 @@ export const SampleAppApiFactory = function (configuration?: Configuration, base
         },
         /**
          * 
-         * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getBooks(id: number, options?: any) {
-            return SampleAppApiFp(configuration).getBooks(id, options)(axios, basePath);
+        getBooks(options?: any) {
+            return SampleAppApiFp(configuration).getBooks(options)(axios, basePath);
         },
         /**
          * 
@@ -562,13 +554,12 @@ export class SampleAppApi extends BaseAPI {
 
     /**
      * 
-     * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SampleAppApi
      */
-    public getBooks(id: number, options?: any) {
-        return SampleAppApiFp(this.configuration).getBooks(id, options)(this.axios, this.basePath);
+    public getBooks(options?: any) {
+        return SampleAppApiFp(this.configuration).getBooks(options)(this.axios, this.basePath);
     }
 
     /**
