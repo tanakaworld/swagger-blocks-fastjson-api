@@ -4,7 +4,7 @@
   "scripts": {
     "api:gen": "npm run swagger:gen && npm run ts:gen",
     "swagger:gen": "bundle exec rails swagger:gen",
-    "ts:gen": "openapi-generator generate -i ./tmp/swagger.json -g typescript-axios -o ./app/javascript/gen/ --additional-properties=\"modelPropertyNaming=snake_case\""
+    "ts:gen": "openapi-generator generate -i ./tmp/swagger.json -g typescript-axios -o ./app/javascript/src/gen/ --additional-properties=\"modelPropertyNaming=snake_case\""
   },
   "dependencies": {
     "@rails/actioncable": "^6.0.0-alpha",

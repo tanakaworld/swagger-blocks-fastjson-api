@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { SampleAppApi } from 'gen';
+import { SampleAppApi } from '@/src/gen';
 
 function hasError(response) {
   return (

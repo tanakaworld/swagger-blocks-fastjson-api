@@ -7,7 +7,7 @@ import {
   combineMutation,
   mutation
 } from 'vuex-typescript-fsa/lib';
-import { Book, BookResponse } from 'gen';
+import { Book, BookResponse } from '@/src/gen';
 
 export const namespace = 'books';
 const actionCreator = actionCreatorFactory(namespace);
