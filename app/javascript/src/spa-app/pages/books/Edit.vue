@@ -15,7 +15,7 @@
 <script lang="ts">
 import Vue from 'vue/dist/vue.esm';
 import PageFetchHook from '@spa-app/mixins/PageFetchHook';
-import BookForm from '@spa-app/components/books/Form.vue';
+import BookForm, { FormData } from '@spa-app/components/books/Form.vue';
 
 import store from '@spa-app/store';
 import * as BooksModule from '@spa-app/store/modules/books';
@@ -35,7 +35,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    async onSubmit(body) {
+    async onSubmit(body: FormData) {
       const bookId = this.$route.params.book_id;
       await this.$store.dispatch(
         BooksModule.UpdateBook.namespaced({

@@ -41,6 +41,12 @@
 import Vue from 'vue/dist/vue.esm';
 import { Book } from '@gen';
 
+export type FormData = {
+  title: string;
+  description: string;
+  image: any;
+}
+
 export default Vue.extend({
   props: {
     book: {
@@ -57,7 +63,7 @@ export default Vue.extend({
         title,
         description,
         image: void 0
-      }
+      } as FormData
     };
   },
   methods: {

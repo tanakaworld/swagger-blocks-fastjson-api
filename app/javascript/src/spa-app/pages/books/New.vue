@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import Vue from 'vue/dist/vue.esm';
-import BookForm from '@spa-app/components/books/Form.vue';
+import BookForm, { FormData } from '@spa-app/components/books/Form.vue';
 
 import * as BooksModule from '@spa-app/store/modules/books';
 
@@ -19,7 +19,7 @@ export default Vue.extend({
     BookForm
   },
   methods: {
-    async onSubmit(body) {
+    async onSubmit(body: FormData) {
       await this.$store.dispatch(
         BooksModule.CreateBook.namespaced({
           body
